@@ -1,0 +1,30 @@
+C:\Lux Fitness Application\LuxFitness\LuxFitness\bin\Debug\LuxFitness.exe.config
+C:\Lux Fitness Application\LuxFitness\LuxFitness\bin\Debug\LuxFitness.exe
+C:\Lux Fitness Application\LuxFitness\LuxFitness\bin\Debug\LuxFitness.pdb
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.csproj.AssemblyReference.cache
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.csproj.SuggestedBindingRedirects.cache
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form1.resources
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Properties.Resources.resources
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.csproj.GenerateResource.cache
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.csproj.CoreCompileInputs.cache
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.exe
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.pdb
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form2.resources
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form3.resources
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form4.resources
+C:\Lux Fitness Application\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form5.resources
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\bin\Debug\LuxFitness.exe.config
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\bin\Debug\LuxFitness.exe
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\bin\Debug\LuxFitness.pdb
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.csproj.AssemblyReference.cache
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.csproj.SuggestedBindingRedirects.cache
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form1.resources
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form2.resources
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form3.resources
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form4.resources
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Form5.resources
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.Properties.Resources.resources
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.csproj.GenerateResource.cache
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.csproj.CoreCompileInputs.cache
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.exe
+C:\Users\jukes\Documents\GitHub\Dev\LuxFitness\LuxFitness\obj\Debug\LuxFitness.pdb
