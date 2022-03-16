@@ -37,5 +37,28 @@ namespace LuxFitness
                 MessageBox.Show("An Error Ocurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
+
+        private void handleSpecialinput(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+
+            if (e.KeyCode == Keys.Back)
+            {
+                Form1 Login = new Form1();
+                Login.Show();
+                this.Hide();
+            }
+        }
+
+        //Point pt = richTextBox1.GetPositionFromCharIndex(richTextBox1.TextLength);
+        //    if (richTextBox1.ClientRectangle.Contains(pt))
+        //    {
+        //        //user has scrolled down all the way
+
+        //        label1.Hide();
+        //    }
+}
 }

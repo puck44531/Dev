@@ -81,11 +81,11 @@ namespace LuxFitness
             this.Hide();
         }
 
-        
+
 
         private void RegisterSystem()
         {
-            
+
 
             string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
 
@@ -94,28 +94,45 @@ namespace LuxFitness
             var hasLowerChar = new Regex(@"[a-z]+");
             var hasSymbols = new Regex(@"[!@#$$^&*()_+=\[{\]};:<>|./?,-]+");
 
-
-            if (!hasNumber.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
+            if (txtUsername.Text == "")
             {
-                MessageBox.Show("The password needs to include the following: (Atleast one number) (Atleast one uppercase letter) (Atleast one lowercase letter) (Atleast one symbol) Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("The username feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txtPassword.Text == "")
+            {
+                MessageBox.Show("The password feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txtConfirmPassword.Text == "")
+            {
+                MessageBox.Show("The confirm password feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txtEmail.Text == "")
+            {
+                MessageBox.Show("The email feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                MessageBox.Show("The passwords that you have entered do not match", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!hasUpperChar.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
             {
-                MessageBox.Show("The password needs to include the following: (Atleast one number) (Atleast one uppercase letter) (Atleast one lowercase letter) (Atleast one symbol) Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("The password that you have entered needs to include atleast 1 uppercase letter, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!hasLowerChar.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
             {
-                MessageBox.Show("The password needs to include the following: (Atleast one number) (Atleast one uppercase letter) (Atleast one lowercase letter) (Atleast one symbol) Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("The password that you have entered needs to include atleast 1 lowercase letter, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!hasSymbols.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
             {
-                MessageBox.Show("The password needs to include the following: (Atleast one number) (Atleast one uppercase letter) (Atleast one lowercase letter) (Atleast one symbol) Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("The password that you have entered needs to include atleast 1 special character, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!hasNumber.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
+            {
+                //MessageBox.Show("The password needs to include the following: (Atleast one number) (Atleast one uppercase letter) (Atleast one lowercase letter) (Atleast one symbol) Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MessageBox.Show("The password that you have entered needs to include atleast 1 number, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
             else if (txtPassword.Text == txtConfirmPassword.Text && (Regex.IsMatch(txtEmail.Text, pattern)))
             {
 
@@ -123,25 +140,38 @@ namespace LuxFitness
                 {
                     try
                     {
-                        con.Open();
-                        string register = "INSERT INTO tbl_users VALUES ('" + txtUsername.Text + "','" + txtPassword.Text + "', '" + txtEmail.Text + "');";
-                        cmd = new OleDbCommand(register, con);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                        if (btnSignup.Enabled == true)
+                        {
+                            con.Open();
+
+                            string register = "INSERT INTO tbl_users (`username`, `password`, `email`) VALUES ('" + txtUsername.Text + "', '" + txtPassword.Text + "', '" + txtEmail.Text + "');";
 
 
 
-                        txtUsername.Text = "";
-                        txtPassword.Text = "";
-                        txtConfirmPassword.Text = "";
-                        txtEmail.Text = "";
+                            cmd = new OleDbCommand(register, con);
+                            cmd.ExecuteNonQuery();
+                            con.Close();
 
-                        MessageBox.Show("You have successfully created a account.", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        Form1 Login = new Form1();
-                        Login.Show();
-                        this.Hide();
+
+                            txtUsername.Text = "";
+                            txtPassword.Text = "";
+                            txtConfirmPassword.Text = "";
+                            txtEmail.Text = "";
+
+                            MessageBox.Show("You have successfully created a account.", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            Form1 Login = new Form1();
+                            Login.Show();
+                            this.Hide();
+                        }
+                        else if (btnSignup.Enabled == false)
+                        {
+
+                        }
+
                     }
+
                     catch (Exception)
                     {
                         DialogResult result = MessageBox.Show("This account already exists, Would you like to login?", "Registration Failed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -162,22 +192,12 @@ namespace LuxFitness
                             con.Close();
                             RegisterSystem();
                         }
-
-
-
                     }
-
                 }
                 else
                 {
                     MessageBox.Show("The password that you have entered is to weak. Please enter a stronger password", "Password to weak", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
                 }
-
-
-
-
             }
             else
             {
@@ -233,11 +253,11 @@ namespace LuxFitness
 
         private void btnSignup_Click(object sender, EventArgs e)
         {
-            //RegisterSystem();
+            RegisterSystem();
 
-            Form4 Login = new Form4();
-            Login.Show();
-            this.Hide();
+            //Form4 Login = new Form4();
+            //Login.Show();
+            //this.Hide();
         }
 
         private void btnEyeclose_Click(object sender, EventArgs e)
