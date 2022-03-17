@@ -81,8 +81,6 @@ namespace LuxFitness
             this.Hide();
         }
 
-
-
         private void RegisterSystem()
         {
 
@@ -94,45 +92,13 @@ namespace LuxFitness
             var hasLowerChar = new Regex(@"[a-z]+");
             var hasSymbols = new Regex(@"[!@#$$^&*()_+=\[{\]};:<>|./?,-]+");
 
-            if (txtUsername.Text == "")
-            {
-                MessageBox.Show("The username feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txtPassword.Text == "")
-            {
-                MessageBox.Show("The password feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txtConfirmPassword.Text == "")
-            {
-                MessageBox.Show("The confirm password feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txtEmail.Text == "")
-            {
-                MessageBox.Show("The email feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txtPassword.Text != txtConfirmPassword.Text)
-            {
-                MessageBox.Show("The passwords that you have entered do not match", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!hasUpperChar.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
-            {
-                MessageBox.Show("The password that you have entered needs to include atleast 1 uppercase letter, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!hasLowerChar.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
-            {
-                MessageBox.Show("The password that you have entered needs to include atleast 1 lowercase letter, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!hasSymbols.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
-            {
-                MessageBox.Show("The password that you have entered needs to include atleast 1 special character, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!hasNumber.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
-            {
-                //MessageBox.Show("The password needs to include the following: (Atleast one number) (Atleast one uppercase letter) (Atleast one lowercase letter) (Atleast one symbol) Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show("The password that you have entered needs to include atleast 1 number, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!hasNumber.IsMatch(txtPassword.Text + txtConfirmPassword.Text) && !hasUpperChar.IsMatch(txtPassword.Text + txtConfirmPassword.Text) && !hasLowerChar.IsMatch(txtPassword.Text + txtConfirmPassword.Text) && !hasSymbols.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
+            {
+                MessageBox.Show("The password needs to include the following: (Atleast one number) (Atleast one uppercase letter) (Atleast one lowercase letter) (Atleast one symbol) Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+
             else if (txtPassword.Text == txtConfirmPassword.Text && (Regex.IsMatch(txtEmail.Text, pattern)))
             {
 
@@ -140,38 +106,25 @@ namespace LuxFitness
                 {
                     try
                     {
-                        if (btnSignup.Enabled == true)
-                        {
-                            con.Open();
-
-                            string register = "INSERT INTO tbl_users (`username`, `password`, `email`) VALUES ('" + txtUsername.Text + "', '" + txtPassword.Text + "', '" + txtEmail.Text + "');";
-
-
-
-                            cmd = new OleDbCommand(register, con);
-                            cmd.ExecuteNonQuery();
-                            con.Close();
+                        con.Open();
+                        string register = "INSERT INTO tbl_users VALUES ('" + txtUsername.Text + "','" + txtPassword.Text + "', '" + txtEmail.Text + "');";
+                        cmd = new OleDbCommand(register, con);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
 
 
 
-                            txtUsername.Text = "";
-                            txtPassword.Text = "";
-                            txtConfirmPassword.Text = "";
-                            txtEmail.Text = "";
+                        txtUsername.Text = "";
+                        txtPassword.Text = "";
+                        txtConfirmPassword.Text = "";
+                        txtEmail.Text = "";
 
-                            MessageBox.Show("You have successfully created a account.", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("You have successfully created a account.", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            Form1 Login = new Form1();
-                            Login.Show();
-                            this.Hide();
-                        }
-                        else if (btnSignup.Enabled == false)
-                        {
-
-                        }
-
+                        Form1 Login = new Form1();
+                        Login.Show();
+                        this.Hide();
                     }
-
                     catch (Exception)
                     {
                         DialogResult result = MessageBox.Show("This account already exists, Would you like to login?", "Registration Failed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -192,12 +145,22 @@ namespace LuxFitness
                             con.Close();
                             RegisterSystem();
                         }
+
+
+
                     }
+
                 }
                 else
                 {
                     MessageBox.Show("The password that you have entered is to weak. Please enter a stronger password", "Password to weak", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
                 }
+
+
+
+
             }
             else
             {
@@ -206,6 +169,121 @@ namespace LuxFitness
                 txtPassword.Focus();
             }
         }
+
+
+
+        //private void RegisterSystem()
+        //{
+
+
+        //    string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+
+        //    var hasNumber = new Regex(@"[0-9]+");
+        //    var hasUpperChar = new Regex(@"[A-Z]+");
+        //    var hasLowerChar = new Regex(@"[a-z]+");
+        //    var hasSymbols = new Regex(@"[!@#$$^&*()_+=\[{\]};:<>|./?,-]+");
+
+        //    if (txtUsername.Text == "")
+        //    {
+        //        MessageBox.Show("The username feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else if (txtPassword.Text == "")
+        //    {
+        //        MessageBox.Show("The password feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else if (txtConfirmPassword.Text == "")
+        //    {
+        //        MessageBox.Show("The confirm password feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else if (txtEmail.Text == "")
+        //    {
+        //        MessageBox.Show("The email feild is empty", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else if (txtPassword.Text != txtConfirmPassword.Text)
+        //    {
+        //        MessageBox.Show("The passwords that you have entered do not match", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else if (!hasUpperChar.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
+        //    {
+        //        MessageBox.Show("The password that you have entered needs to include atleast 1 uppercase letter, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else if (!hasLowerChar.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
+        //    {
+        //        MessageBox.Show("The password that you have entered needs to include atleast 1 lowercase letter, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else if (!hasSymbols.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
+        //    {
+        //        MessageBox.Show("The password that you have entered needs to include atleast 1 special character, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    else if (!hasNumber.IsMatch(txtPassword.Text + txtConfirmPassword.Text))
+        //    {  
+
+        //        MessageBox.Show("The password that you have entered needs to include atleast 1 number, Please try again", "Registration denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        //    }
+        //    if (txtPassword.Text == txtConfirmPassword.Text && (Regex.IsMatch(txtEmail.Text, pattern)))
+        //    {
+
+        //        if (StrenthProgressBar.Value >= 75)
+        //        {
+        //            try
+        //            {
+        //                con.Open();
+        //                string register = "INSERT INTO tbl_users VALUES ('" + txtUsername.Text + "','" + txtPassword.Text + "', '" + txtEmail.Text + "');";
+        //                cmd = new OleDbCommand(register, con);
+        //                cmd.ExecuteNonQuery();
+        //                con.Close();
+
+
+
+        //                txtUsername.Text = "";
+        //                txtPassword.Text = "";
+        //                txtConfirmPassword.Text = "";
+        //                txtEmail.Text = "";
+
+        //                MessageBox.Show("You have successfully created a account.", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //                Form1 Login = new Form1();
+        //                Login.Show();
+        //                this.Hide();
+        //            }
+        //            catch (Exception)
+        //            {
+        //                DialogResult result = MessageBox.Show("This account already exists, Would you like to login?", "Registration Failed", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+        //                if (result == DialogResult.Yes)
+        //                {
+        //                    Form1 Login = new Form1();
+        //                    Login.Show();
+        //                    this.Hide();
+        //                }
+        //                else if (result == DialogResult.No)
+        //                {
+        //                    MessageBox.Show("This account already exists", "Account Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //                    txtUsername.Text = "";
+        //                    txtPassword.Text = "";
+        //                    txtConfirmPassword.Text = "";
+        //                    txtEmail.Text = "";
+        //                    con.Close();
+        //                    RegisterSystem();
+        //                }
+
+
+
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("The password that you have entered is to weak. Please enter a stronger password", "Password to weak", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Please check that your passwords match and your email is correct", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        //        txtPassword.Focus();
+        //    }
+        //}
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
@@ -281,6 +359,26 @@ namespace LuxFitness
             Form2 Login = new Form2();
             Login.Show();
             this.Hide();
+        }
+
+        private void handleSpecialinput(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
+
+            if (e.KeyCode == Keys.Back)
+            {
+                Form1 Login = new Form1();
+                Login.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnSignup_KeyDown(object sender, KeyEventArgs e)
+        {
+            handleSpecialinput(e);
         }
     }
 }

@@ -53,7 +53,7 @@
             this.txtUsername.Location = new System.Drawing.Point(81, 307);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(368, 40);
-            this.txtUsername.TabIndex = 4;
+            this.txtUsername.TabIndex = 0;
             // 
             // txtEmail
             // 
@@ -63,7 +63,7 @@
             this.txtEmail.Location = new System.Drawing.Point(81, 681);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(368, 40);
-            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TabIndex = 3;
             // 
             // txtPassword
             // 
@@ -74,7 +74,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(368, 40);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnSignup
@@ -85,9 +85,10 @@
             this.btnSignup.Location = new System.Drawing.Point(71, 760);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(430, 52);
-            this.btnSignup.TabIndex = 5;
+            this.btnSignup.TabIndex = 4;
             this.btnSignup.UseVisualStyleBackColor = true;
             this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
+            this.btnSignup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSignup_KeyDown);
             this.btnSignup.MouseHover += new System.EventHandler(this.btnSignup_MouseHover);
             // 
             // button2
@@ -98,7 +99,7 @@
             this.button2.Location = new System.Drawing.Point(1415, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(18, 18);
-            this.button2.TabIndex = 7;
+            this.button2.TabIndex = 8;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -110,7 +111,7 @@
             this.button1.Location = new System.Drawing.Point(1378, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 18);
-            this.button1.TabIndex = 8;
+            this.button1.TabIndex = 7;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -122,7 +123,7 @@
             this.button3.Location = new System.Drawing.Point(7, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(30, 18);
-            this.button3.TabIndex = 8;
+            this.button3.TabIndex = 6;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -135,7 +136,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(368, 40);
-            this.txtConfirmPassword.TabIndex = 4;
+            this.txtConfirmPassword.TabIndex = 2;
             // 
             // StrenthProgressBar
             // 
@@ -144,7 +145,7 @@
             this.StrenthProgressBar.Name = "StrenthProgressBar";
             this.StrenthProgressBar.Size = new System.Drawing.Size(172, 23);
             this.StrenthProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.StrenthProgressBar.TabIndex = 30;
+            this.StrenthProgressBar.TabIndex = 9;
             this.StrenthProgressBar.Click += new System.EventHandler(this.StrenthProgressBar_Click);
             // 
             // btnEyeopen
@@ -155,7 +156,7 @@
             this.btnEyeopen.Location = new System.Drawing.Point(446, 565);
             this.btnEyeopen.Name = "btnEyeopen";
             this.btnEyeopen.Size = new System.Drawing.Size(42, 33);
-            this.btnEyeopen.TabIndex = 31;
+            this.btnEyeopen.TabIndex = 10;
             this.btnEyeopen.UseVisualStyleBackColor = true;
             this.btnEyeopen.Click += new System.EventHandler(this.btnEyeopen_Click);
             // 
@@ -188,7 +189,7 @@
             this.button4.Location = new System.Drawing.Point(337, 831);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(30, 23);
-            this.button4.TabIndex = 33;
+            this.button4.TabIndex = 5;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
